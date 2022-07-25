@@ -29,13 +29,13 @@ class Employee(models.Model):
 class Detail(models.Model):
     __tablename__ = 'details',
 
-    employee= models.ForeignKey(Employee, related_name='details', on_delete=models.CASCADE)
+    employee= models.ForeignKey(Employee, related_name='detail', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100),
     last_name = models.CharField(max_length=100),
     birthday = models.DateField(blank=True, null=True),
     joined = models.DateTimeField(blank=True, null=True),
     rank= models.IntegerField(null=True),
-    phone_number = models.ImageField(null=True, blank=True),
+    phone_number = models.IntegerField(null=True, blank=True),
 
     def __str__(self):
         return self.employee, self.first_name, self.last_name, self.birthday
